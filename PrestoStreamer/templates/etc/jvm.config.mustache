@@ -1,0 +1,8 @@
+-server
+-Xmx1G
+-XX:+UseG1GC
+-XX:+UseGCOverheadLimit
+-XX:+ExplicitGCInvokesConcurrent
+-XX:+HeapDumpOnOutOfMemoryError
+-XX:OnOutOfMemoryError=kill -9 %p
+-Djava.util.logging.config.file=/var/app/presto/etc/logging.properties
