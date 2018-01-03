@@ -60,12 +60,11 @@ RUN apt-get update \
     && apt-get clean
 
 COPY templates/etc/  ${PRESTO_CONF_DIR}/
-COPY templates/presto-server-heartbeat.sh /var/app/presto-server-heartbeat
 
 COPY bin/entrypoint.sh ./entrypoint.sh
 COPY bin/mustache.sh ./mustache.sh
 COPY lib/mustache.sh ./lib/mustache.sh
-RUN chmod +x entrypoint.sh mustache.sh lib/mustache.sh presto-server-heartbeat
+RUN chmod +x entrypoint.sh mustache.sh lib/mustache.sh
 
 RUN wget -N https://repo1.maven.org/maven2/com/facebook/presto/presto-server/${PRESTO_VERSION}/presto-server-${PRESTO_VERSION}.tar.gz
 RUN tar -zxvf presto-server-${PRESTO_VERSION}.tar.gz
