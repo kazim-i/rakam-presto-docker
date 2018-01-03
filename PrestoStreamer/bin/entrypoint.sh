@@ -13,4 +13,4 @@ done
 
 rm ${PRESTOST_CONF_DIR}/*.mustache
 
-(/var/app/presto-streamer/bin/launcher start) && (killall -9 presto-collector-heartbeat || true) && (/var/app/presto-collector-heartbeat &)
+/var/app/presto-streamer/bin/launcher start

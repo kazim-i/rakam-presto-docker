@@ -51,12 +51,11 @@ RUN apt-get update \
     && apt-get clean
 
 COPY templates/etc/  ${PRESTOST_CONF_DIR}/
-COPY templates/presto-collector-heartbeat.sh /var/app/presto-collector-heartbeat
 
 COPY bin/entrypoint.sh ./entrypoint.sh
 COPY bin/mustache.sh ./mustache.sh
 COPY lib/mustache.sh ./lib/mustache.sh
-RUN chmod +x entrypoint.sh mustache.sh lib/mustache.sh presto-collector-heartbeat
+RUN chmod +x entrypoint.sh mustache.sh lib/mustache.sh
 
 RUN wget -N https://s3.amazonaws.com/rakam-private-code/rakam-presto-builds/${PRESTO_VERSION}/latest.tar.gz
 RUN tar -zxvf latest.tar.gz
