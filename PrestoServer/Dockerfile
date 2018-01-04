@@ -1,4 +1,4 @@
-FROM ubuntu:16.04
+FROM maven:3-jdk-8
 
 WORKDIR /var/app
 
@@ -19,25 +19,8 @@ RUN mkdir -p /var/app/presto/plugin/presto-rakam-raptor
 RUN mkdir -p /var/app/presto/plugin/presto-rakam-udf
 RUN mkdir -p ${DATA_DIR}
 
-# Install Java.
-RUN apt-get update && \
-    apt-get upgrade -y && \
-    apt-get install -y  software-properties-common && \
-    add-apt-repository ppa:webupd8team/java -y && \
-    apt-get update && \
-    echo oracle-java7-installer shared/accepted-oracle-license-v1-1 select true | /usr/bin/debconf-set-selections && \
-    apt-get install -y oracle-java8-installer && \
-    apt-get clean
-
-# Define commonly used JAVA_HOME variable
-ENV JAVA_HOME /usr/lib/jvm/java-8-oracle
-ENV PATH $PATH:${JAVA_HOME}/bin:${PRESTO_HOME}/bin
-
-
-RUN  apt-get update \
-  && apt-get install -y wget \
-  && rm -rf /var/lib/apt/lists/*
-
+RUN apt-get update \
+  && apt-get install -y wget
 
 RUN apt-get update \
     && apt-get upgrade -y \
