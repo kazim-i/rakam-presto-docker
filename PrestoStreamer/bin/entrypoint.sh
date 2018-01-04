@@ -13,4 +13,4 @@ done
 
 rm ${PRESTOST_CONF_DIR}/*.mustache
 
-/var/app/presto-streamer/bin/launcher start
+/var/app/presto-streamer/bin/launcher run
