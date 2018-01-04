@@ -23,4 +23,4 @@ rm /var/app/presto/etc/*.mustache
 rm /var/app/presto/etc/coordinator.properties /var/app/presto/etc/worker.properties
 rm /var/app/presto/etc/catalog/*.mustache
 
-bin/launcher start
+bin/launcher run
