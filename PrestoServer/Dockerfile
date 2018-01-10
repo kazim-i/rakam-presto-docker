@@ -1,4 +1,4 @@
-FROM maven:3-jdk-8
+FROM airdock/oracle-jdk:1.8
 
 WORKDIR /var/app
 
