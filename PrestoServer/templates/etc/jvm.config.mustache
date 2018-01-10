@@ -6,3 +6,10 @@
 -XX:+HeapDumpOnOutOfMemoryError
 -XX:OnOutOfMemoryError=kill -9 %p
 -Djava.util.logging.config.file=/var/app/presto/etc/logging.properties
+-Dcom.sun.management.jmxremote=true
+-Dcom.sun.management.jmxremote.local.only=false
+-Dcom.sun.management.jmxremote.authenticate=false
+-Dcom.sun.management.jmxremote.ssl=false
+-Djava.rmi.server.hostname={{DOCKER_HOST_IP}}
+-Dcom.sun.management.jmxremote.port=9999
+-Dcom.sun.management.jmxremote.rmi.port=9998
