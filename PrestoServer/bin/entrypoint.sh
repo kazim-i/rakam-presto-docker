@@ -23,6 +23,4 @@ rm /var/app/presto/etc/*.mustache
 rm /var/app/presto/etc/coordinator.properties /var/app/presto/etc/worker.properties
 rm /var/app/presto/etc/catalog/*.mustache
 
-echo "$PRIVATE_IP $AWS_HOSTNAME" >> /etc/hosts
-
 /var/app/presto/bin/launcher run
