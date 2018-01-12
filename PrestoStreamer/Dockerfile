@@ -1,4 +1,4 @@
-FROM ubuntu:16.04
+FROM airdock/oracle-jdk:1.8
 
 WORKDIR /var/app
 
@@ -9,16 +9,6 @@ ENV PRESTO_STREAMER_HOME /var/app/presto-streamer
 ENV PRESTOST_CONF_DIR ${PRESTO_STREAMER_HOME}/etc
 
 RUN mkdir -p /var/app/presto-streamer/etc
-
-# Install Java.
-RUN apt-get update && \
-    apt-get upgrade -y && \
-    apt-get install -y  software-properties-common && \
-    add-apt-repository ppa:webupd8team/java -y && \
-    apt-get update && \
-    echo oracle-java7-installer shared/accepted-oracle-license-v1-1 select true | /usr/bin/debconf-set-selections && \
-    apt-get install -y oracle-java8-installer && \
-    apt-get clean
 
 # Define commonly used JAVA_HOME variable
 ENV JAVA_HOME /usr/lib/jvm/java-8-oracle
@@ -62,7 +52,5 @@ RUN tar -zxvf latest.tar.gz
 RUN mv collector-*/* ./presto-streamer/
 RUN rm -r collector-*
 RUN rm latest.tar.gz
-
-# TODO datadir
 
 ENTRYPOINT [ "./entrypoint.sh" ]
